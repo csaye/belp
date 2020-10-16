@@ -21,6 +21,9 @@ class App extends React.Component {
       this.setState({
         businesses: businesses
       });
+      if (businesses.length === 0) {
+        alert('No businesses found.');
+      }
     });
   }
   render() {
