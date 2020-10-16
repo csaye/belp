@@ -13,6 +13,10 @@ class App extends React.Component {
     this.searchYelp = this.searchYelp.bind(this);
   }
   searchYelp(term, location, sortBy) {
+    if (!term || !location) {
+      alert('Please enter a term and a location.');
+      return;
+    }
     Yelp.search(term, location, sortBy).then(businesses => {
       this.setState({
         businesses: businesses
@@ -22,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>ravenous</h1>
+        <h1>belp</h1>
         <SearchBar searchYelp={this.searchYelp} />
         <BusinessList businesses={this.state.businesses} />
       </div>
